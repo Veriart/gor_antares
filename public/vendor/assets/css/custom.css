@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Arena';
+    src: url('/vendor/assets/fonts/Arena.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Redzone';
+    src: url('/vendor/assets/fonts/VTFRedzone-Classic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.arena-f {
+    font-family: 'Arena', sans-serif !important;
+}
+
+.redzone-f {
+    font-family: 'Redzone', sans-serif !important;
+}
