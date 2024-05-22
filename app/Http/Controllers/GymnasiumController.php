@@ -54,6 +54,7 @@ class GymnasiumController extends Controller
      */
     public function update(Request $request, Gymnasium $gymnasium)
     {
+        dd($request->all());
         $gymnasium->name = $request->name;
         $gymnasium->type = $request->type;
         $gymnasium->update();

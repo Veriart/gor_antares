@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->enum('type', ['Single Field', 'Multiple Field']);
+            $table->string('open', 15);
+            $table->string('close', 15);
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('gymnasia');
+        Schema::dropIfExists('gymnasium');
     }
 };

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Field;
 use App\Models\Transaction;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -13,8 +14,26 @@ class TransactionController extends Controller
      */
     public function index()
     {
+        // Set the starting time
+        $startTime = Carbon::parse('10:00:00');
+
+        // Set the ending time
+        $endTime = Carbon::parse('23:00:00');
+
+        $times = [];
+        // Iterate through the time range with an interval of 60 minutes
+        for ($currentTime = $startTime; $currentTime->lte($endTime); $currentTime->addMinutes(60)) {
+            // Process each time value within the loop
+            $currentHour = $currentTime->format('H');
+            $currentMinute = $currentTime->format('i');
+
+            $times[] = "{$currentHour}:{$currentMinute}";
+
+            // Perform any desired actions or calculations based on the current time value
+        }
+
         $fields = Field::all();
-        return view('admin.transaction.index', compact('fields'));
+        return view('admin.transaction.index', compact('fields', 'times'));
     }
 
     /**

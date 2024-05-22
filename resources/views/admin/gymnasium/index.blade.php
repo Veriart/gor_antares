@@ -27,14 +27,35 @@
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-2">
                                     <select class="form-select @error('type') is-invalid @enderror" name="type">
                                         <option value="" hidden selected><i class="ti ti-mail me-2 fs-4"></i>Tipe GOR
                                         </option>
-                                        <option value="Single Field" {{ $gymnasium->type == 'Single Field' ? 'selected' : '' }}>Single Field</option>
-                                        <option value="Multiple Field" {{ $gymnasium->type == 'Multiple Field' ? 'selected' : '' }}>Multiple Field</option>
+                                        <option value="Single Field"
+                                            {{ $gymnasium->type == 'Single Field' ? 'selected' : '' }}>Single Field</option>
+                                        <option value="Multiple Field"
+                                            {{ $gymnasium->type == 'Multiple Field' ? 'selected' : '' }}>Multiple Field
+                                        </option>
                                     </select>
                                     @error('type')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                                <div class=" mb-3">
+                                    <label class="ms-1"><i class="fas fa-clock me-2 fs-4"></i> Jam Operasional</label>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <small class="fw-bold">Jam Buka</small>
+                                            <input type="time" name="open" class="form-control me-3 operational"
+                                            id="timepicker" placeholder="Jam Buka" data-dtp="dtp_qqyco" value="">
+                                        </div>
+                                        <div class="col-6">
+                                            <small class="fw-bold">Jam Tutup</small>
+                                            <input type="time" name="close" class="form-control operational"
+                                                id="timepicker" placeholder="Jam Tutup" data-dtp="dtp_qqyco" value="">
+                                        </div>
+                                    </div>
+                                    @error('name')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>

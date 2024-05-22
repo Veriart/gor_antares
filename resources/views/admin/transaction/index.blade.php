@@ -53,31 +53,19 @@
                                     @foreach ($fields as $field)
                                         <div class="tab-pane {{ $loop->first == 1 ? 'active' : '' }}"
                                             id="{{ $field->name . $field->number }}" role="tabpanel">
-                                            <div class="p-3">
+                                            <div class="p-3 pe-0">
                                                 <h3 class="redzone-f">Lapangan {{ $field->name }}</h3>
 
                                                 <div class="d-flex flex-wrap gap-6 mt-3">
-                                                    <div>
-                                                        <input type="checkbox" class="btn-check" id="btn-check"
-                                                            autocomplete="off">
-                                                        <label class="btn btn-outline-primary " for="btn-check">07.00 - 08.00
+                                                    @foreach (operating_hour('07:00:00', '10:00:00') as $time)
+                                                    <div class="flex-grow-2">
+                                                        <input type="checkbox" class="btn-check" id="btn-check{{ $loop->index }}"
+                                                        autocomplete="off">
+                                                        <label class="btn btn-outline-primary b-square" for="btn-check{{ $loop->index }}"><label class="fw-bold">{{ $time }}</label>
                                                             <small class="d-block">Available</small>
                                                         </label>
                                                     </div>
-                                                    <div>
-                                                        <input type="checkbox" class="btn-check" id="btn-check2"
-                                                            autocomplete="off">
-                                                        <label class="btn btn-outline-primary " for="btn-check2">08.00 - 09.00
-                                                            <small class="d-block">Available</small>
-                                                        </label>
-                                                    </div>
-                                                    <div>
-                                                        <input type="checkbox" class="btn-check" id="btn-check3"
-                                                            autocomplete="off" disabled>
-                                                        <label class="btn btn-outline-danger " for="btn-check3">09.00 - 10.00
-                                                            <small class="text-muted d-block"><small>Booked</small></small>
-                                                        </label>
-                                                    </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>

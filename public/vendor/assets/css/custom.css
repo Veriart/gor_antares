@@ -19,3 +19,11 @@
 .redzone-f {
     font-family: 'Redzone', sans-serif !important;
 }
+
+.b-square{
+    border-radius: 10% !important;
+}
+
+.fw-bold{
+    font-weight: 900 !important;
+}

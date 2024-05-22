@@ -470,6 +470,26 @@
                 }
             }
         });
+
+        const timeInput = document.getElementById("myTimeInput");
+
+        // Check if browser supports the 'step' attribute for time input (optional)
+        if (timeInput.step) {
+            // Set step to 1 minute (default is 60 minutes)
+            timeInput.step = 60;
+        }
+
+        // Enforce 24-hour format on input change (optional)
+        timeInput.addEventListener('change', function() {
+            const enteredTime = this.value;
+            // Split the time into hours and minutes (already in 24-hour format)
+            const [hours, minutes] = enteredTime.split(':');
+
+            // Ensure hours are within 0-23 range (optional, for extra validation)
+            if (hours < 0 || hours > 23) {
+                this.value = '00:' + minutes; // Set to 00:minutes if invalid
+            }
+        });
     </script>
 </body>
 

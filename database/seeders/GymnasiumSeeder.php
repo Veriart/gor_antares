@@ -15,7 +15,9 @@ class GymnasiumSeeder extends Seeder
     {
         Gymnasium::insert([
             'name' => 'GOR Antares',
-            'type' => 'Multiple Field'
+            'type' => 'Multiple Field',
+            'open' => '07:00:00',
+            'close' => '18:00:00'
         ]);
     }
 }
